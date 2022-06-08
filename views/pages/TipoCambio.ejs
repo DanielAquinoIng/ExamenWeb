@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <h1>Tipo de cambio</h1>
+    <p class="textoPlano">Ingresa el tipo de cambio en las siguientes casillas, para compra y para venta</p>
+    <div class="row">
+        <div class="col" style="background-color:rgb(226, 255, 222);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/TipoCambio" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <legend class="text-center header">Tipo de cambio a la compra</legend>
+                                            <input id="tipoCambioCompra" name="tipoCambioCompra" type="number"
+                                                placeholder="0" class="form-control" value="<%- tipoCambioCompra %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <legend class="text-center header">Tipo de cambio a la venta</legend>
+                                            <input id="tipoCambioVenta" name="tipoCambioVenta" type="number"
+                                                placeholder="0" class="form-control" style="text-align: center;"
+                                                value="<%- tipoCambioVenta %>">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg">Listo</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% if (Error==6) { %>
+        <script>
+          Swal.fire({
+            title: '¡Tipo de cambio cambiado con éxito!',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#03abff'
+          })
+        </script>
+    <% } %>
+
+    <% if (Error==7) { %>
+        <script>
+          Swal.fire({
+            title: '¡Cuidado!',
+            text:'¡Este tipo de cambio te puede generar perdidas! Te recomendamos tener el precio de compra mas bajo que el de venta',
+            icon: 'warning',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#03abff'
+          })
+        </script>
+    <% } %>
+    

@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <h1>Compra</h1>
+    <p class="textoPlano">Ingresa la cantidad de dólares que vas a comprar</p>
+    <div class="row">
+        <div class="col" style="background-color:rgb(226, 255, 222);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Tipo cambio: <%- tipoCambioCompra %></legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Cantidad de dólares a comprar:</label>
+                                            <input id="compraDolares" name="compraDolares" type="number" 
+                                                placeholder="Ingresa la cantidad de dólares" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg" >Comprar</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="background-color:rgb(131, 180, 131);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Saldo Actual</legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Dólares:</label>
+                                            <input id="dolaresCompraActual" name="dolaresCompraActual" type="number"
+                                                placeholder="0" class="form-control" disabled="true" value="<%- dolares %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Pesos:</label>
+                                            <input id="pesosCompraActual" name="pesosCompraActual" type="number"
+                                                placeholder="0" class="form-control" disabled="true" value="<%- pesos %>">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if (Error==6) { %>
+    <script>
+      Swal.fire({
+        title: 'Compra realizada con éxito',
+        text: 'El total en pesos fue de: <%- cambioCompra %>',
+        icon: 'success',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#03abff'
+      })
+    </script>
+<% } %>
+
+<% if (Error==1) { %>
+    <script>
+      Swal.fire({
+        title: 'Ooops...!',
+        text: 'No se pueden dejar campos vacíos, por favor ingresa una cantidad',
+        icon: 'error',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#03abff'
+      })
+    </script>
+<% } %>
+
+<% if (Error==2) { %>
+    <script>
+      Swal.fire({
+        title: 'Ooops...!',
+        text: 'No puedes ingresar números negativos o ceros, por favor ingresa una cantidad mayor a cero',
+        icon: 'error',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#03abff'
+      })
+    </script>
+<% } %>
+
+<% if (Error==3) { %>
+    <script>
+      Swal.fire({
+        title: 'Ooops...!',
+        text: 'No puedes comprar esa cantidad de dólares, tu saldo es de: <%- pesos %> pesos y la compra es de: <%- cambiomalo %> pesos',
+        icon: 'error',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#03abff'
+      })
+    </script>
+<% } %>

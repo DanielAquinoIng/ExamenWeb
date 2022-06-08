@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <h1>Corte de caja</h1>
+    <p class="textoPlano">Esta sección te muestra con cuanto dinero (pesos y dólares) empezaste y terminaste el día</p>
+    <div class="row">
+        <div class="col" style="background-color:rgb(226, 255, 222);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Pesos</legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Empezaste con: </label>
+                                            <input id="cortePesosInicio" name="cortePesosInicio" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- cortePesosInicio %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Terminaste con: </label>
+                                            <input id="cortePesosFinal" name="cortePesosFinal" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- cortePesosFinal %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Ganancia de: </label>
+                                            <input id="cortePesosGanancia" name="cortePesosGanancia" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- cortePesosGanancia %>">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="background-color:rgb(131, 180, 131);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Dólares</legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Empezaste con: </label>
+                                            <input id="corteDolaresInicio" name="corteDolaresInicio" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- corteDolaresInicio %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Terminaste con: </label>
+                                            <input id="corteDolaresFinal" name="corteDolaresFinal" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- corteDolaresFinal %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Ganancia de: </label>
+                                            <input id="corteDolaresGanancia" name="corteDolaresGanancia" type="number" placeholder="0"
+                                                class="form-control" disabled="true" value="<%- corteDolaresGanancia %>">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

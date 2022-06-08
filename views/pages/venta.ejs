@@ -1,0 +1,134 @@
+<div class="container-fluid">
+    <h1>Venta</h1>
+    <p class="textoPlano">Ingresa la cantidad de dólares que vas a vender</p>
+    <div class="row">
+        <div class="col" style="background-color:rgb(226, 255, 222);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/venta" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Tipo cambio: <%- tipoCambioVenta %>
+                                    </legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Cantidad de dólares a vender:</label>
+                                            <input id="ventaDolares" name="ventaDolares" type="number"
+                                                placeholder="Ingresa la cantidad de dólares" class="form-control">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Pago con: </label>
+                                            <input id="pagoDolares" name="pagoDolares" type="number"
+                                                placeholder="Sueldo del cliente"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg">Vender</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="background-color:rgb(131, 180, 131);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <form action="/venta" class="form-horizontal" method="post" style="margin: 0 auto;">
+                                <fieldset>
+                                    <legend class="text-center header">Saldo Actual</legend>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-user bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <label>Dólares:</label>
+                                            <input id="dolaresVentaActual" name="dolaresVentaActual" type="number"
+                                                placeholder="0" class="form-control" disabled="true"
+                                                value="<%- dolares %>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>Pesos:</label>
+                                            <input id="pesosVentaActual" name="pesosVentaActual" type="number"
+                                                placeholder="0" class="form-control" disabled="true"
+                                                value="<%- pesos %>">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if (Error==6) { %>
+    <script>
+      Swal.fire({
+        title: 'venta realizada con éxito',
+        text: 'El cambio en pesos es de: <%- regreso %>',
+        icon: 'success',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#03abff'
+      })
+    </script>
+<% } %>
+
+<% if (Error==1) { %>
+    <script>
+        Swal.fire({
+            title: 'Ooops...!',
+            text: 'No se pueden dejar campos vacíos, por favor ingresa una cantidad',
+            icon: 'error',
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#03abff'
+        })
+    </script>
+    <% } %>
+
+        <% if (Error==2) { %>
+            <script>
+                Swal.fire({
+                    title: 'Ooops...!',
+                    text: 'No puedes ingresar número negativos o ceros, por favor ingresa una cantidad',
+                    icon: 'error',
+                    confirmButtonText: 'Continuar',
+                    confirmButtonColor: '#03abff'
+                })
+            </script>
+            <% } %>
+
+                <% if (Error==4) { %>
+                    <script>
+                        Swal.fire({
+                            title: 'Ooops...!',
+                            text: 'No puedes vender esa cantidad de dólares, tu saldo es de: <%- dolares %> dolares y la venta es de: <%- ventaDolares %> dólares',
+                            icon: 'error',
+                            confirmButtonText: 'Continuar',
+                            confirmButtonColor: '#03abff'
+                        })
+                    </script>
+                    <% } %>
+
+                        <% if (Error==5) { %>
+                            <script>
+                                Swal.fire({
+                                    title: 'Ooops...!',
+                                    text: 'El saldo del cliente no cubre la venta de los dólares, la venta es de: <%- cambiomalo %> pesos y el pago fue de: <%- pagoDolares %> pesos',
+                                    icon: 'error',
+                                    confirmButtonText: 'Continuar',
+                                    confirmButtonColor: '#03abff'
+                                })
+                            </script>
+                            <% } %>
